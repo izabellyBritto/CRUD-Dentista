@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema Odontológico</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #ffffff;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .header img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    .header h1 {
+      font-size: 2em;
+      color: #222;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .card i {
+      font-size: 48px;
+      color: #84fa84;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      color: #222;
+      margin-bottom: 15px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 0.95em;
+    }
+
+    .card .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      background-color: #ffffff;
+      color: #84fa84;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .card .btn:hover {
+      background-color: #ffffff;
+      color: #67c567;
+    }
+
+    .btn i {
+      margin-right: 8px;
+    }
+
+    .curiosidades-section {
+      margin: 60px auto 0 auto;
+      max-width: 1000px;
+      padding: 0 10px;
+    }
+
+    .curiosidades-title {
+      color: #84fa84;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .curiosidades-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .curiosidade-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      padding: 24px 18px;
+      min-width: 220px;
+      max-width: 320px;
+      flex: 1 1 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .curiosidade-emoji {
+      font-size: 2.5em;
+      margin-bottom: 12px;
+    }
+
+    .curiosidade-texto {
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    @media (max-width: 900px) {
+      .curiosidades-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="/assets/logo.png" alt="Logo Odontologia">
+      <h1>Sistema Odontológico</h1>
+    </div>
+
+    <div class="dashboard">
+      <div class="card">
+        <i class="fas fa-user-md"></i>
+        <h2>Dentistas</h2>
+        <p>Gerencie o cadastro de dentistas, incluindo suas especialidades e informações profissionais.</p>
+        <a th:href="@{/dentistas/listar}" class="btn">
+          <i class="fas fa-user-md"></i>
+          <span>Ver Dentistas</span>
+        </a>
+      </div>
+      <div class="card">
+        <i class="fas fa-tooth"></i>
+        <h2>Especialidades</h2>
+        <p>Cadastre e gerencie as especialidades odontológicas disponíveis no sistema.</p>
+        <a th:href="@{/especialidades/listar}" class="btn">
+          <i class="fas fa-tooth"></i>
+          <span>Ver Especialidades</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="curiosidades-section">
+      <div class="curiosidades-title">Curiosidades sobre Odontologia</div>
+      <div class="curiosidades-cards">
+        <div class="curiosidade-card">
+          <div class="curiosidade-emoji">🦷</div>
+          <div class="curiosidade-texto">O esmalte do dente é o tecido mais duro do corpo humano!</div>
+        </div>
+        <div class="curiosidade-card">
+          <div class="curiosidade-emoji">😁</div>
+          <div class="curiosidade-texto">O sorriso é o cartão de visita de qualquer pessoa.</div>
+        </div>
+        <div class="curiosidade-card">
+          <div class="curiosidade-emoji">🪥</div>
+          <div class="curiosidade-texto">Escovar os dentes pelo menos 3 vezes ao dia previne cáries e doenças gengivais.</div>
+        </div>
+        <div class="curiosidade-card">
+          <div class="curiosidade-emoji">👩‍⚕️</div>
+          <div class="curiosidade-texto">O Brasil é o país com o maior número de dentistas do mundo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

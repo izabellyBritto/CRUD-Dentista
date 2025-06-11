@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Especialidade</title>
+    <link rel="stylesheet" href="/css/dentista.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      .header {
+        box-shadow: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <img src="/assets/logo.png" alt="Logo Odontologia" style="width:60px;height:60px;object-fit:contain;">
+          <h1>Sistema Odontológico</h1>
+        </div>
+      </div>
+      
+      <div th:if="${error}" class="error-message" th:text="${error}"></div>
+      
+      <form th:action="@{/especialidades/salvar}" method="POST" th:object="${especialidade}">
+        <h1>
+          <span th:text="${especialidade.id == null ? 'Nova Especialidade' : 'Editar Especialidade'}"></span>
+        </h1>
+        
+        <input type="hidden" name="id" th:field="*{id}" readonly />
+        
+        <div class="form-group">
+          <label for="nomeespecialidade">
+            <i class="fas fa-tag"></i>
+            Nome da Especialidade
+          </label>
+          <input type="text" name="nomeespecialidade" th:field="*{nomeespecialidade}" required 
+                 th:class="${#fields.hasErrors('nomeespecialidade')} ? 'error'"
+                 placeholder="Digite o nome da especialidade" />
+          <span class="error" th:if="${#fields.hasErrors('nomeespecialidade')}" 
+                th:errors="*{nomeespecialidade}"></span>
+        </div>
+        
+        <div class="form-actions">
+  <button type="submit" class="btn-salvar">Salvar</button>
+  <a href="/dentistas" class="btn-cancelar">Cancelar</a>
+</div>
+
+      </form>
+    </div>
+  </body>
+</html>
