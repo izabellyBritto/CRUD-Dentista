@@ -172,7 +172,9 @@
     </div>
 
     <div th:if="${param.error}" class="error-message" th:text="${param.error}"></div>
+    <div th:if="${error}" class="error-message" th:text="${error}"></div>
     <div th:if="${param.success}" class="success-message" th:text="${param.success}"></div>
+    <div th:if="${success}" class="success-message" th:text="${success}"></div>
 
     <table>
       <thead>
